@@ -79,4 +79,7 @@
     <string name="other_controls_title">Other controls</string>
     <string name="fullscreen_gestures_title">Fullscreen gestures</string>
     <string name="fullscreen_gestures_summary">Hide navbar pill and keyboard space</string>
+
+    <!-- Screenshot shutter sound -->
+    <string name="screenshot_shutter_sound_title">Screenshot shutter sound</string>
 </resources>
