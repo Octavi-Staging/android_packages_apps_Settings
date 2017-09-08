@@ -5717,6 +5717,23 @@
             </intent-filter>
         </activity>
 
+        <!-- OctaviLab -->
+        <activity android:name=".Settings$OctaviLabActivity"
+                android:label="@string/octavi_lab_dash_title"
+                android:icon="@drawable/ic_homepage_octavi"
+                android:exported="true"
+                android:taskAffinity="com.android.settings"
+                android:parentActivityName="Settings">
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                       android:value="com.octavi.lab.OctaviLab" />
+            <intent-filter android:priority="69">
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.android.settings.SHORTCUT" />
+            </intent-filter>
+        </activity>
+
         <!-- This is the longest AndroidManifest.xml ever. -->
+
     </application>
+
 </manifest>

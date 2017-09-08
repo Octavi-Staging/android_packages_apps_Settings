@@ -1,0 +1,2 @@
+# OctaviLab
+-keep class com.octavi.lab.**

@@ -55,6 +55,16 @@
         android:order="-120"
         android:key="top_level_personalize_category"
         android:layout="@layout/settingslib_preference_category_no_title">
+
+        <com.android.settings.widget.HomepagePreference
+            android:fragment="com.octavi.lab.OctaviLab"
+            android:icon="@drawable/ic_settings_octavi"
+            android:key="top_level_octavi"
+            android:order="-70"
+            android:title="@string/octavi_lab_dash_title"
+            settings:controller="com.octavi.lab.TopLevelOctaviLabPreferenceController"
+            settings:highlightableMenuKey="@string/menu_key_octavi"/>
+
         <com.android.settings.widget.HomepagePreference
             android:fragment="com.android.settings.applications.AppDashboardFragment"
             android:icon="@drawable/ic_homepage_apps"

@@ -76,4 +76,7 @@
     <!-- App details: open play store link if app is user installed -->
     <string name="app_play_store">Google Play</string>
 
+    <!-- Octavi Lab -->
+    <string name="octavi_lab_dash_title">Octavi Lab</string>
+    <string name="octavi_lab_summary">Customization Laboratory</string>
 </resources>
