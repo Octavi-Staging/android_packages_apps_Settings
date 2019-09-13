@@ -38,6 +38,10 @@
     <!-- About phone screen,  setting option name  [CHAR LIMIT=40] -->
     <string name="build_date">Build date</string>
 
+    <!-- Octavi version -->
+    <string name="octavi_version">Octavi version</string>
+    <string name="octavi_version_default">Unknown</string>
+
     <!-- Hardware info -->
     <string name="platform_revision">Platform</string>
     <string name="total_ram">Total RAM</string>
