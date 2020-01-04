@@ -418,4 +418,7 @@
     <dimen name="screen_flash_color_button_inner_circle_size">42dp</dimen>
     <dimen name="screen_flash_color_button_inner_circle_padding">3dp</dimen>
     <dimen name="screen_flash_color_button_inner_circle_stroke">1dp</dimen>
+
+    <!-- circle avatar size dimensions-->
+    <dimen name="circle_avatar_size">40dp</dimen>
 </resources>

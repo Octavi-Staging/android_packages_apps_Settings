@@ -39,6 +39,13 @@ import android.os.UserHandle;
 import android.os.UserManager;
 import android.text.TextUtils;
 import android.util.ArraySet;
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
+import android.os.Bundle;
+import android.os.UserHandle;
+import android.os.UserManager;
 import android.util.FeatureFlagUtils;
 import android.util.Log;
 import android.view.View;
@@ -59,6 +66,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.window.embedding.SplitRule;
 
+import com.android.internal.util.UserIcons;
+
 import com.android.settings.R;
 import com.android.settings.Settings;
 import com.android.settings.SettingsActivity;
@@ -78,6 +87,7 @@ import com.google.android.setupcompat.util.WizardManagerHelper;
 
 import java.net.URISyntaxException;
 import java.util.Set;
+import com.android.settingslib.drawable.CircleFramedDrawable;
 
 /** Settings homepage activity */
 public class SettingsHomepageActivity extends FragmentActivity implements
@@ -171,6 +181,10 @@ public class SettingsHomepageActivity extends FragmentActivity implements
         return mCategoryMixin;
     }
 
+    Context context;
+    ImageView avatarView;
+    UserManager mUserManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -207,6 +221,22 @@ public class SettingsHomepageActivity extends FragmentActivity implements
         mLoadedListeners = new ArraySet<>();
 
         initSearchBarView();
+        Context context = getApplicationContext();
+
+        mUserManager = context.getSystemService(UserManager.class);
+
+        avatarView = findViewById(R.id.account_avatar);
+        //final AvatarViewMixin avatarViewMixin = new AvatarViewMixin(this, avatarView);
+        avatarView.setImageDrawable(getCircularUserIcon(context));
+        avatarView.setVisibility(View.VISIBLE);
+        avatarView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_MAIN);
+                intent.setComponent(new ComponentName("com.android.settings","com.android.settings.Settings$UserSettingsActivity"));
+                startActivity(intent);
+            }
+        });
 
         getLifecycle().addObserver(new HideNonSystemOverlayMixin(this));
         mCategoryMixin = new CategoryMixin(this);
@@ -215,7 +245,6 @@ public class SettingsHomepageActivity extends FragmentActivity implements
         final String highlightMenuKey = getHighlightMenuKey();
         // Only allow features on high ram devices.
         if (!getSystemService(ActivityManager.class).isLowRamDevice()) {
-            initAvatarView();
             final boolean scrollNeeded = mIsEmbeddingActivityEnabled
                     && !TextUtils.equals(getString(DEFAULT_HIGHLIGHT_MENU_KEY), highlightMenuKey);
             showSuggestionFragment(scrollNeeded);
@@ -732,5 +761,26 @@ public class SettingsHomepageActivity extends FragmentActivity implements
                 ((SplitLayoutListener) fragment).setSplitLayoutSupported(mIsTwoPaneLayout);
             }
         }
+    }
+
+    private Drawable getCircularUserIcon(Context context) {
+        Bitmap bitmapUserIcon = mUserManager.getUserIcon(UserHandle.myUserId());
+
+        if (bitmapUserIcon == null) {
+            // get default user icon.
+            final Drawable defaultUserIcon = UserIcons.getDefaultUserIcon(
+                    context.getResources(), UserHandle.myUserId(), false);
+            bitmapUserIcon = UserIcons.convertToBitmap(defaultUserIcon);
+        }
+        Drawable drawableUserIcon = new CircleFramedDrawable(bitmapUserIcon,
+                (int) context.getResources().getDimension(R.dimen.circle_avatar_size));
+
+        return drawableUserIcon;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        avatarView.setImageDrawable(getCircularUserIcon(getApplicationContext()));
     }
 }
