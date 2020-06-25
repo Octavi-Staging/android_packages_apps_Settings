@@ -11,4 +11,5 @@
 
     <!-- OctaviOS maintainer -->
     <string name="maintainer">Maintainer</string>
+    <string name="octavi_maintainer">Unofficial Maintainer</string>
 </resources>

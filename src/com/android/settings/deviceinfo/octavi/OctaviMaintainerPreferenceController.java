@@ -17,7 +17,7 @@
 package com.android.settings.deviceinfo.octavi;
 
 import android.content.Context;
-import android.os.SystemProperties;
+import android.content.res.Resources;
 import android.text.TextUtils;
 
 import androidx.preference.Preference;
@@ -28,7 +28,6 @@ import com.android.settings.core.BasePreferenceController;
 public class OctaviMaintainerPreferenceController extends BasePreferenceController {
 
     private static final String TAG = "OctaviMaintainerPreferenceController";
-    private static final String ROM_PROPERTY = "ro.octavi.maintainer";
 
     public OctaviMaintainerPreferenceController(Context context, String key) {
         super(context, key);
@@ -39,8 +38,7 @@ public class OctaviMaintainerPreferenceController extends BasePreferenceControll
     }
 
     public CharSequence getSummary() {
-        String rom = SystemProperties.get(ROM_PROPERTY,
-                this.mContext.getString(R.string.device_info_default));
-        return rom;
+        String maintainer = mContext.getResources().getString(R.string.octavi_maintainer);
+        return maintainer;
     }
 }
