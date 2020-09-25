@@ -35,6 +35,14 @@
         settings:enableCopying="true"
         settings:controller="com.android.settings.deviceinfo.firmwareversion.AboutDeviceNamePreferenceController"/>
 
+    <!-- Phone Specs -->
+    <Preference
+        android:key="phone_specs"
+        android:title="@string/specs_title"
+        android:summary="@string/summary_placeholder"
+        settings:enableCopying="true"
+        settings:controller="com.android.settings.deviceinfo.firmwareversion.SpecsPreferenceController"/>
+
     <!-- Octavi version -->
     <Preference
         android:key="octavi_version"

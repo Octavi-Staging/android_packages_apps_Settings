@@ -39,6 +39,9 @@
     <string name="build_date">Build date</string>
     <string name="about_device_name">Device</string>
 
+    <!-- Phone Specs -->
+    <string name="specs_title">Phone Specifications</string>
+
     <!-- Octavi version -->
     <string name="octavi_version">Octavi version</string>
     <string name="octavi_version_default">Unknown</string>
