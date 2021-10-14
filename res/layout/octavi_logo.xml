@@ -1,0 +1,11 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_marginVertical="20dp"
+    android:layout_width="match_parent"> 
+	<ImageView android:src="@drawable/ic_oct_logo"
+	    android:layout_gravity="center"
+	    android:layout_width="880px"
+	    android:layout_height="320px"
+	    android:scaleType="fitXY"/>
+</LinearLayout>
