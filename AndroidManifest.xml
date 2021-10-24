@@ -4918,5 +4918,19 @@
         </activity>
 
         <!-- This is the longest AndroidManifest.xml ever. -->
+
+        <!-- OctaviLab -->
+        <activity android:name=".Settings$OctaviLabActivity"
+            android:label="@string/octavi_lab_dash_title"
+            android:icon="@drawable/ic_homepage_octavi"
+            android:exported="true"
+            android:parentActivityName="com.android.settings">
+            <intent-filter>
+                <action android:name="com.android.settings.action.SETTINGS" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.octavi.lab.OctaviLab" />
+        </activity>
+
     </application>
 </manifest>

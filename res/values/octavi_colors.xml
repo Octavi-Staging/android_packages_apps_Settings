@@ -16,6 +16,7 @@
 <resources
     xmlns:androidprv="http://schemas.android.com/apk/prv/res/android">
 
+    <color name="homepage_octavi_background">#FFCD00</color>
     <color name="colorPrimary">#fff</color>
     <color name="colorPrimaryDark">#101010</color>
 </resources>
