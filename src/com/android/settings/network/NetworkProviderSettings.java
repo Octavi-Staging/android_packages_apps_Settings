@@ -549,7 +549,7 @@ public class NetworkProviderSettings extends RestrictedSettingsFragment
             if (resultCode == Activity.RESULT_OK) {
                 final WifiConfiguration wifiConfiguration = data.getParcelableExtra(
                         ConfigureWifiEntryFragment.NETWORK_CONFIG_KEY);
-                if (wifiConfiguration != null) {
+                if (mWifiManager != null && wifiConfiguration != null) {
                     mWifiManager.connect(wifiConfiguration,
                             new WifiConnectActionListener());
                 }
@@ -1156,8 +1156,11 @@ public class NetworkProviderSettings extends RestrictedSettingsFragment
         final Context context = getContext();
         final PowerManager powerManager = context.getSystemService(PowerManager.class);
         final ContentResolver contentResolver = context.getContentResolver();
-        return hasWifiManager()
-                && mWifiManager.isAutoWakeupEnabled()
+        if (mWifiManager == null && getActivity() != null)
+            mWifiManager = getActivity().getSystemService(WifiManager.class);
+        if (mWifiManager == null)
+            return false;
+        return mWifiManager.isAutoWakeupEnabled()
                 && mWifiManager.isScanAlwaysAvailable()
                 && Settings.Global.getInt(contentResolver,
                 Settings.Global.AIRPLANE_MODE_ON, 0) == 0
@@ -1178,7 +1181,7 @@ public class NetworkProviderSettings extends RestrictedSettingsFragment
     private void handleAddNetworkSubmitEvent(Intent data) {
         final WifiConfiguration wifiConfiguration = data.getParcelableExtra(
                 AddNetworkFragment.WIFI_CONFIG_KEY);
-        if (wifiConfiguration != null && hasWifiManager()) {
+        if (mWifiManager != null && wifiConfiguration != null) {
             mWifiManager.save(wifiConfiguration, mSaveListener);
         }
     }
@@ -1225,7 +1228,7 @@ public class NetworkProviderSettings extends RestrictedSettingsFragment
             if (config == null) {
                 Toast.makeText(getContext(), R.string.wifi_failed_save_message,
                         Toast.LENGTH_SHORT).show();
-            } else {
+            } else if (mWifiManager != null) {
                 mWifiManager.save(config, mSaveListener);
             }
         } else if (dialogMode == WifiConfigUiBase2.MODE_CONNECT
@@ -1233,7 +1236,7 @@ public class NetworkProviderSettings extends RestrictedSettingsFragment
             if (config == null) {
                 connect(wifiEntry, false /* editIfNoConfig */,
                         false /* fullScreenEdit*/);
-            } else {
+            } else if (mWifiManager != null) {
                 mWifiManager.connect(config, new WifiConnectActionListener());
             }
         }
