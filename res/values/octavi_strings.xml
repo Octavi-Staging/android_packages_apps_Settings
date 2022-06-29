@@ -52,4 +52,9 @@
     <!-- Three-fingers-swipe to screenshot -->
     <string name="swipe_to_screenshot_gesture_title">Swipe to screenshot</string>
     <string name="swipe_to_screenshot_gesture_summary">Swipe three fingers to take screenshot</string>
+
+    <!-- Fingerprint wake-and-unlock -->
+    <string name="fingerprint_wake_unlock_title">Touch fingerprint to unlock</string>
+    <string name="fingerprint_wake_unlock_touch">Listens for events while the screen is off</string>
+    <string name="fingerprint_wake_unlock_press">Only listens for events once the screen is on</string>
 </resources>
