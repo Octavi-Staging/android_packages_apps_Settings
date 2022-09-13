@@ -42,6 +42,10 @@
     <string name="octavi_version">Octavi version</string>
     <string name="octavi_version_default">Unknown</string>
 
+    <!-- Octavi Maintainer -->
+    <string name="octavi_maintainer">Octavi maintainer</string>
+    <string name="octavi_maintainer_summary">Unknown</string>
+
     <!-- Hardware info -->
     <string name="platform_revision">Platform</string>
     <string name="total_ram">Total RAM</string>

@@ -38,6 +38,14 @@
         settings:enableCopying="true"
         settings:controller="com.android.settings.deviceinfo.firmwareversion.OctaviVersionPreferenceController"/>
 
+    <!-- Octavi maintainer -->
+    <Preference
+        android:key="octavi_maintainer"
+        android:title="@string/octavi_maintainer"
+        android:summary="@string/summary_placeholder"
+        settings:enableCopying="true"
+        settings:controller="com.android.settings.deviceinfo.firmwareversion.OctaviMaintainerPreferenceController"/>
+
     <!-- Security patch -->
     <Preference
         android:key="security_key"
