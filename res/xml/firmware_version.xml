@@ -27,14 +27,13 @@
         android:layout="@layout/octavi_logo"
         android:selectable="false"/>
 
-    <!-- Android version -->
+    <!-- Device name -->
     <Preference
-        android:key="os_firmware_version"
-        android:title="@string/firmware_version"
+        android:key="about_device_name"
+        android:title="@string/about_device_name"
         android:summary="@string/summary_placeholder"
         settings:enableCopying="true"
-        settings:searchable="false"
-        settings:controller="com.android.settings.deviceinfo.firmwareversion.FirmwareVersionDetailPreferenceController"/>
+        settings:controller="com.android.settings.deviceinfo.firmwareversion.AboutDeviceNamePreferenceController"/>
 
     <!-- Octavi version -->
     <Preference
@@ -52,13 +51,21 @@
         settings:enableCopying="true"
         settings:controller="com.android.settings.deviceinfo.firmwareversion.OctaviMaintainerPreferenceController"/>
 
-    <!-- Device name -->
+    <!-- Octavi build type -->
     <Preference
-        android:key="about_device_name"
-        android:title="@string/about_device_name"
+        android:key="build_type"
+        android:title="@string/build_type"
+        settings:enableCopying="true"
+        settings:controller="com.android.settings.deviceinfo.firmwareversion.OctaviBuildTypePreferenceController"/>
+
+    <!-- Android version -->
+    <Preference
+        android:key="os_firmware_version"
+        android:title="@string/firmware_version"
         android:summary="@string/summary_placeholder"
         settings:enableCopying="true"
-        settings:controller="com.android.settings.deviceinfo.firmwareversion.AboutDeviceNamePreferenceController"/>
+        settings:searchable="false"
+        settings:controller="com.android.settings.deviceinfo.firmwareversion.FirmwareVersionDetailPreferenceController"/>
 
     <!-- Security patch -->
     <Preference
