@@ -20,6 +20,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.net.Uri;
+import android.os.SystemProperties;
 import android.text.TextUtils;
 import android.util.Log;
 
@@ -32,21 +33,19 @@ public class OctaviMaintainerPreferenceController extends BasePreferenceControll
 
     private static final String TAG = "OctaviMaintainerCtrl";
 
-    private String mDeviceMaintainer;
+    private static final String KEY_OCTAVI_MAINTAINER_PROP = "ro.octavi.maintainer";
 
     public OctaviMaintainerPreferenceController(Context context, String key) {
-        super(context, key);
-        mDeviceMaintainer = mContext.getResources().getString(R.string.octavi_maintainer_summary);
+        super(context, key);   
     }
 
     @Override
     public int getAvailabilityStatus() {
-        return !TextUtils.isEmpty(mDeviceMaintainer)
-                ? AVAILABLE : CONDITIONALLY_UNAVAILABLE;
+        return AVAILABLE;
     }
 
     @Override
     public CharSequence getSummary() {
-        return mDeviceMaintainer;
+        return SystemProperties.get(KEY_OCTAVI_MAINTAINER_PROP);
     }
 }
