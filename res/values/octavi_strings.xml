@@ -49,8 +49,4 @@
     <!-- Octavi Maintainer -->
     <string name="octavi_maintainer">Octavi maintainer</string>
     <string name="octavi_maintainer_summary">Unknown</string>
-
-     <!-- Hardware info -->
-    <string name="platform_revision">Platform</string>
-    <string name="total_ram">Total RAM</string>
 </resources>
