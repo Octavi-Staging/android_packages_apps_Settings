@@ -36,7 +36,7 @@ import java.util.List;
 public class SpecsPreferenceController extends BasePreferenceController {
 
     @VisibleForTesting
-    static final String PROCESSOR_MODEL = "ro.processor.model";
+    static final String PROCESSOR_MODEL = "ro.soc.model";
     static String aprox;
     public SpecsPreferenceController(Context context, String preferenceKey) {
         super(context, preferenceKey);
@@ -73,9 +73,8 @@ public class SpecsPreferenceController extends BasePreferenceController {
     public static int getTotalRAM() {
             MemInfoReader memReader = new MemInfoReader();
             memReader.readMemInfo();
-            String aprox;
             double totalmem = memReader.getTotalSize();
-            double gb = (totalmem / 1073741824) + 0.1f; // Cause 4gig devices show memory as 3.48 .-.
+            double gb = (totalmem / 1073741824) + 0.3f; // Cause 4gig devices show memory as 3.48 .-.
             int gigs = (int) Math.round(gb);
             return gigs;
     }
