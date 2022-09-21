@@ -50,12 +50,7 @@
     <string name="octavi_maintainer">Octavi maintainer</string>
     <string name="octavi_maintainer_summary">Unknown</string>
 
-    <!-- Hardware info -->
+     <!-- Hardware info -->
     <string name="platform_revision">Platform</string>
     <string name="total_ram">Total RAM</string>
-
-    <!-- Build types, now with translations -->
-    <string name="build_type">Build Type</string>
-    <string name="octavi_official">Official</string>
-    <string name="octavi_unofficial">Unofficial</string>
 </resources>

@@ -41,6 +41,7 @@ public class OctaviVersionPreferenceController extends BasePreferenceController 
     private static final String TAG = "octaviVersionDialogCtrl";
 
     private static final String KEY_OCTAVI_VERSION_PROP = "ro.octavi.branding.version";
+    private static final String KEY_OCTAVI_BUILD_TYPE = "ro.octavi.status";
 
     public OctaviVersionPreferenceController(Context context, String key) {
         super(context, key);
@@ -63,7 +64,8 @@ public class OctaviVersionPreferenceController extends BasePreferenceController 
 
     @Override
     public CharSequence getSummary() {
-        return SystemProperties.get(KEY_OCTAVI_VERSION_PROP,
-                mContext.getString(R.string.unknown));
+        String octaviVersion = SystemProperties.get(KEY_OCTAVI_VERSION_PROP);
+        String octaviBuildType = SystemProperties.get(KEY_OCTAVI_BUILD_TYPE);
+        return octaviVersion + " | " + octaviBuildType;
     }
 }
