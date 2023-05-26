@@ -32,7 +32,7 @@ import com.android.settings.core.BasePreferenceController;
 
 public class OctaviLogoPreferenceController extends BasePreferenceController {
 
-    private static final Uri INTENT_URI_DATA = Uri.parse("https://octavi-os.com");
+    private static final Uri INTENT_URI_DATA = Uri.parse("https://team-octavi.com");
     private static final String TAG = "OctaviLogoPreferenceCtrl";
 
     private final PackageManager mPackageManager;
